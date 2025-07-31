@@ -21,10 +21,10 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "Moderation",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "essentials/Fakeperms",
+              "essentials/Jail System"
             ]
           },
           {
