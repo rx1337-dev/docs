@@ -2,3 +2,104 @@
 description: "The Jail System lets moderators restrict users by assigning them a special jailed role with limited access. Before you can jail anyone, you need to set up the system."
 title: "Jail System"
 ---
+
+## **1. Run the Setup Command**
+
+To initialize everything, run:
+
+```
+,jail setup
+```
+
+This will automatically:
+
+- Create a **"jailed" role** with no permissions.
+- Create a **"Jail" category** containing:
+  - **#jailed** — where jailed users can communicate.
+  - **#jail-logs** — where jail/un-jail actions are logged.
+
+    <Note>
+      The bot will show a loading message while creating the role and channels, then confirm when setup is complete.
+    </Note>
+
+## **2. Adjust Permissions (Optional)**
+
+By default:
+
+- **Jailed users** can only see and talk in `#jailed`.
+- They **cannot** send embeds, files, or add reactions.
+- They **cannot** view other channels.
+
+If you need different permissions:
+
+1. Go to **Server Settings → Roles → Jailed**.
+2. Adjust permissions as needed.
+3. Make sure your staff still has access to `#jailed` and `#jail-logs`.
+
+## **3. Test the Setup**
+
+Make sure:
+
+- The **"jailed" role** is at the correct position in your role list (above default roles, below staff roles).
+- The **#jailed** and **#jail-logs** channels are visible to staff and hidden from other members.
+
+### **4. Deleting the "jailed" role**
+
+- If you delete the **jailed role**, anyone who is currently jailed will **instantly lose all role restrictions** (they’ll default to having no role or only the @everyone role).
+- Commands like `unjail` will **fail** because the bot can’t find the jail role to remove.
+- The jail system **won’t work** until you either:
+  - Run `jail setup` again (recreates everything), or
+  - Use `jail role @NewRole` to assign a new role as the jail role.
+
+    ```
+    ,jail role @new-jail-role
+    ```
+
+### **5. Deleting the #jail-logs channel**
+
+- If you delete the **#jail-logs channel**, the bot can still jail and unjail users, but **no actions will be logged**.
+- To restore logging, you’ll need to run:
+
+  ```
+  ,jail logs #new-logs-channel
+  ```
+
+  This will rebuild the logging system.
+
+## **Jailing a User**
+
+Once the system is set up, you can jail any member using the `jail` command.
+
+```
+,jail @Troublemaker Spamming links in channels
+```
+
+### **What happens when you jail someone:**
+
+1. **All their roles are removed** (but restored after the jail ends).
+2. They are **assigned the “jailed” role**, which restricts them to the `#jailed` channel only.
+3. A **log entry** is sent to the jail logs channel (if configured).
+4. A **custom jail message** is sent in the `#jailed` channel (you can configure this with `jail message`).
+
+   <Tip>
+     If no reason is provided, it will default to "No reason provided."
+   </Tip>
+
+### **Unjailing a User**
+
+To release someone from jail:
+
+```
+,unjail @troublemaker
+```
+
+- Their **previous roles are restored**.
+- The **“jailed” role is removed**.
+- A **log entry** is added to the jail logs.
+
+<Warning>
+  Edge Cases
+
+  - **Jailing the server owner or higher roles**: Won’t work due to Discord’s hierarchy rules.
+  - **Changing the jail role while users are jailed**: Won’t work until all jailed members are unjailed.
+</Warning>
