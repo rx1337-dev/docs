@@ -21,10 +21,67 @@ description: "The mutechannel command tells the bot which channels to use for mu
    Running `mutechannel` with a channel that’s **already in the list** removes it.\
    Running it with a **new channel** adds it.
 
-<Info>
+   <Info>
+     **Important Notes**
+     - Muted users will only be restricted in the channels you set here.
+     - When you **add a new channel**, the bot automatically applies mute settings to existing muted users in that channel.
+     - When you **remove a channel**, the bot removes special mute permissions for those users in that channel.
+   </Info>
+
+### **How to Use the Mute Commands**
+
+The bot has **3 types of mutes**:
+
+- **Text mute** → Stops a user from sending messages.
+- **Reaction mute** → Stops a user from adding reactions.
+- **Image mute** → Stops a user from sending images/files.
+
+These only work in the channels you’ve configured with `,mutechannel`.
+
+### **Step-by-Step: Muting a User**
+
+1. **Mute a user**\
+   Run:
+
+   ```
+   ,mute @User 10m, Spamming
+   ```
+
+   `@User` = the person to mute
+
+   `10m` = duration (supports `s/m/h/d` like `30s`, `1h`, `2d`)
+
+   `Spamming` = reason (optional)
+2. **Reaction mute a user**
+
+   ```
+   ,reactionmute @User 30m, React spamming
+   ```
+3. **Image mute a user**
+
+   ```
+   ,imagemute @User 2h, Posting NSFW images
+   ```
+4. **Unmute a user**
+
+   ```
+   ,unmute @User
+   ```
+
+   (Same idea for `,reactionunmute` and `,imageunmute`.)
+5. **To view users who are muted**
+
+   `,muted` → view muted members
+
+   `,reactionmuted` → view members who are reaction muted
+
+   `,imagemuted`  → view members who cannot attach files
+
+<Warning>
   **Important Notes**
 
-  - Muted users will only be restricted in the channels you set here.
-  - When you **add a new channel**, the bot automatically applies mute settings to existing muted users in that channel.
-  - When you **remove a channel**, the bot removes special mute permissions for those users in that channel.
-</Info>
+  - You **cannot** mute users higher than you in the role hierarchy or the server owner.
+  - Durations **cannot exceed 1 week**.
+  - Mutes **auto-expire** at the set time.
+  - When you change `mutechannel`, existing mutes automatically **resync** to the new channels.
+</Warning>
