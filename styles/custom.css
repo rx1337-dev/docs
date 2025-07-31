@@ -1,3 +1,4 @@
-body {
-  background-color: #1a1a1a !important; /* Replace with your color */
+/* Override Mintlify green background */
+.mintlify-theme-mint {
+    background-color: #010101 !important;
 }
