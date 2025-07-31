@@ -21,8 +21,8 @@
           {
             "group": "Moderation",
             "pages": [
-              "essentials/Fakeperms",
-              "essentials/Jail System"
+              "Moderation/Fakeperms",
+              "Moderation/Jail System"
             ]
           },
           {
