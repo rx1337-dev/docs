@@ -1,4 +1,30 @@
 ---
-title: 'Mute System'
-description: 'Learn to properly configure mute commands for your server'
+title: "How to Use the Mutechannel Command"
+description: "The mutechannel command tells the bot which channels to use for muting (text mutes, reaction mutes, and image mutes). When you mute someone, the bot will only apply permission changes in these channels."
 ---
+
+1. **Decide which channels should be used for muting**\
+   These are usually the channels where you want muted users to lose the ability to send messages, react, or upload files.
+
+   ```
+   ,mutechannel #general, #commands
+   ```
+2. **Review the list**\
+   Use:
+
+   ```
+   ,viewmute
+   ```
+
+   This shows all channels currently set up for mutes.
+3. **Change or remove channels later**\
+   Running `mutechannel` with a channel that’s **already in the list** removes it.\
+   Running it with a **new channel** adds it.
+
+<Info>
+  **Important Notes**
+
+  - Muted users will only be restricted in the channels you set here.
+  - When you **add a new channel**, the bot automatically applies mute settings to existing muted users in that channel.
+  - When you **remove a channel**, the bot removes special mute permissions for those users in that channel.
+</Info>
