@@ -2,3 +2,6 @@
 .mintlify-theme-mint {
     background-color: #010101 !important;
 }
+.mintlify-theme-mint .prose > *:first-child {
+    background-color: #010101 !important;
+}
