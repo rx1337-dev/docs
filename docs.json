@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "test",
   "colors": {
-    "primary": "#010101",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#7b9fb0",
+    "light": "#7b9fb0",
+    "dark": "#7b9fb0"
   },
   "favicon": "/favicon.svg",
   "navigation": {
