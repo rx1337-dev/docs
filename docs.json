@@ -23,8 +23,9 @@
             "group": "Moderation",
             "icon": "hammer",
             "pages": [
-              "Moderation/Fakeperms",
-              "Moderation/Jail System"
+              "Moderation/Mute System",
+              "Moderation/Jail System",
+              "Moderation/Fakeperms"
             ]
           },
           {
