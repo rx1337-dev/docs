@@ -64,12 +64,6 @@
     }
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "https://discord.gg/slain"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Discord",
