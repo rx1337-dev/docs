@@ -1,0 +1,141 @@
+---
+title: "Warn System"
+description: "The Warn System allows moderators to issue warnings to users, automatically track their warning count, and apply automated punishments when thresholds are reached.
+It also supports role-based thresholds, bypasses, and exemptions, giving servers fine-grained control over who can be warned and who can configure the system."
+---
+
+## **Features**
+
+- **Warn users** with a reason (stored in a database).
+- **Auto-punishment** when a user reaches a configurable threshold:
+  - Timeout (with duration)
+  - Kick
+  - Ban
+- **Role-based thresholds** (different thresholds per role).
+- **Bypass & Exemption:**
+  - **Bypass:** Allows users/roles to manage warn settings or thresholds.
+  - **Exempt:** Prevents users/roles from being warned or punished.
+- **Clear or remove warnings** individually, by user, or for the whole server.
+- **Configurable thresholds & punishments** for all users or per role.
+- **Logs with timestamps** for warnings and actions.
+- **Reset** all warn configurations with one command.
+
+## **1. Setting Up the Warn System**
+
+Before using warnings effectively, you should configure the punishment and threshold.
+
+### **Step 1: Set a Punishment**
+
+Choose what happens when someone reaches the warning threshold:
+
+- `timeout [duration]` – Temporarily time out the user.
+- `kick` – Remove the user from the server.
+- `ban` – Permanently ban the user.
+- `none` – Disable automated punishments.
+
+**Example:**
+
+```
+,warn punishment timeout 1h
+```
+
+This sets the punishment to a **1-hour timeout** when the threshold is reached.
+
+### **Step 2: Set a Warning Threshold**
+
+Set how many warnings a user can get before the punishment is triggered.\
+**Example:**
+
+```
+,warn threshold 3
+```
+
+Now, after **3 warnings**, the configured punishment will be applied.
+
+### **Step 3: (Optional) View Current Config**
+
+Check what punishment and threshold are active:
+
+```
+,warn config
+```
+
+### **Step 4: (Optional) Add Bypass or Exemptions**
+
+- **Bypass**: Roles/users who can change warn settings (e.g., moderators).
+
+  ```
+  ,warn bypass @moderators
+  ```
+
+  **Exempt**: Roles/users who cannot be warned or punished.
+
+  ```
+  ,warn whitelist @VIP
+  ```
+
+## **2. Using the Warn System**
+
+### **Warn a User**
+
+**Example:**
+
+```
+,warn @User Spamming channels
+```
+
+- Adds a warning to the user.
+- If they reach the threshold, applies the punishment (timeout/kick/ban).
+
+**View Warnings**
+
+**Example:**
+
+```
+,warnings @user
+```
+
+- Shows all warnings for a user.
+- If no user is specified, shows the **3 most recently warned users**.
+
+### **Clear Warnings**
+
+**Clear all warnings for one user:**
+
+```
+,warn clearall @user
+```
+
+**Clear all warnings for the entire server:** _(Owner or bypassed users only)_
+
+```
+,warn clearguild
+```
+
+**Remove a Specific Warning:**
+
+```
+warn remove @User 2
+```
+
+### **Manage Bypasses**
+
+- Toggle bypass for a user or role:
+
+  ```
+  ,warn bypass @ModeratorRole
+  ```
+
+  View all bypassed users/roles:
+
+  ```
+  ,warn bypassed
+  ```
+
+### **Reset the System**
+
+To completely reset all warn data and configurations:
+
+```
+,warn reset
+```
