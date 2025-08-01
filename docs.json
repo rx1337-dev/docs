@@ -25,6 +25,7 @@
             "pages": [
               "Moderation/Mute System",
               "Moderation/Jail System",
+              "Moderation/Warn System",
               "Moderation/Fakeperms"
             ]
           },
