@@ -1,8 +1,6 @@
 ---
 title: "Fakeperms"
-description: "The Fake Permissions System lets administrators grant fake Discord permissions to roles.
-These do not modify actual Discord permissions but allow roles to bypass permission checks inside the bot.
-
+description: "The Fake Permissions System lets administrators grant fake Discord permissions to roles. These do not modify actual Discord permissions but allow roles to bypass permission checks inside the bot.
 For example, you can give a role the fake manage_messages permission so users with that role can use commands that normally require Manage Messages — without giving them that permission in Discord."
 ---
 
@@ -15,7 +13,7 @@ For example, you can give a role the fake manage_messages permission so users wi
 
 ## **Commands**
 
-### **1. **`fakepermissions create [role]`
+### 1. `fakepermissions create [role]`
 
 Sets up a role to use fake permissions.\
 By default, it gets `manage_messages` as its first fake permission.
@@ -26,7 +24,7 @@ By default, it gets `manage_messages` as its first fake permission.
 ,fakepermissions create helpers
 ```
 
-### **2. **`fakepermissions delete [role]`
+### 2. `fakepermissions delete [role]`
 
 Removes all fake permissions for a role.
 
@@ -36,7 +34,7 @@ Removes all fake permissions for a role.
 ,fakepermissions delete @Helpers
 ```
 
-### **3. **`fakepermissions add [role] [permissions...]`
+### 3. `fakepermissions add [role] [permissions...]`
 
 Adds fake permissions to a role.\
 Supports **multiple permissions**, separated by spaces or commas.
@@ -51,7 +49,7 @@ fakepermissions add @Helpers kick_members, manage_channels
   a `,` (comma) must be used to seperate each permission
 </Warning>
 
-### **4. **`fakepermissions remove [role] [permissions...]`
+### 4. `fakepermissions remove [role] [permissions...]`
 
 Removes specific fake permissions from a role.
 
@@ -61,7 +59,7 @@ Removes specific fake permissions from a role.
 fakepermissions remove @Helpers ban_members
 ```
 
-### **5. **`fakepermissions view [role]`
+### 5. `fakepermissions view [role]`
 
 Shows all fake permissions assigned to a role.
 
@@ -71,7 +69,7 @@ Shows all fake permissions assigned to a role.
 ,fakepermissions view @Helpers
 ```
 
-### **6. **`fakepermissions roles`
+### 6. `fakepermissions roles`
 
 Lists all roles currently using fake permissions, who added them, and when.
 
